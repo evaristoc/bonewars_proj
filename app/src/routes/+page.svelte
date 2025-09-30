@@ -35,6 +35,9 @@
 <video autoplay muted loop id="fossilpitvideo" aria-label="fossilpit">
 	<source src={pitVideo} type="video/mp4" />
 </video>
+<div class="title">
+	<h1>Race for Dinosaurs</h1>
+</div>
 <div class="content">
 	<Flash {...dataset.section01} />
 	<Flash {...dataset.section02} />
@@ -47,5 +50,27 @@
 		bottom: 0;
 		min-width: 100%;
 		min-height: 100%;
+		filter: contrast(200%) sepia(10%) drop-shadow(-30px -30px red);
+	}
+	.title {
+		position: fixed;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		color: #f1f1f1;
+		width: 100%;
+		padding: 20px;
+		font-size: 5rem;
+		margin-bottom: 1rem;
+		color: #efeae6;
+		letter-spacing: 1px;
+		margin-bottom: 1rem;
+		width: auto;
+		box-shadow: 0px 10px 0px 5px rgb(51, 50, 50);
+
+		/*animation-name: titleFadeIn;*/
+		animation-duration: 0.09s; /*0.05 ---- 10 step*/
+		animation-timing-function: steps(10, jump-both);
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
 	}
 </style>
