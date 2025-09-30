@@ -1,11 +1,74 @@
-<script>
-	let { flashInnerText, src, alt, innerTextrotation, imgrotation } = $props();
+<script lang="ts">
+	interface CompProps {
+		flashInnerText: String;
+		flashSrc: string;
+		flashAlt: string;
+		innerTextrotation: number;
+		imgrotation: number;
+		contentbgcolor: string;
+		contenttop: number;
+		contentleft: number;
+		imgtop: number;
+		imgleft: number;
+	}
+
+	let {
+		flashInnerText,
+		flashSrc,
+		flashAlt,
+		innerTextrotation,
+		imgrotation,
+		contentbgcolor,
+		contenttop,
+		contentleft,
+		imgtop,
+		imgleft
+	}: CompProps = $props();
+
+	let finrot = 25;
 </script>
 
 <div class="flash">
-	<p class="flash-content" style:rotate={innerTextrotation}>{flashInnerText}</p>
-	<img class="flash-img" {src} {alt} style:rotate={imgrotation} />
+	<img
+		class="flash-img"
+		src={flashSrc}
+		alt={flashAlt}
+		style:rotate="{imgrotation}deg"
+		style:--finrot="{finrot}deg"
+		style:top="{imgtop}rem"
+		style:left="{imgleft}rem"
+	/>
+	<div
+		class="flash-content"
+		style:rotate="{innerTextrotation}deg"
+		style:background={contentbgcolor}
+		style:top="{contenttop}rem"
+		style:left="{contentleft}rem"
+	>
+		<p>{flashInnerText}</p>
+	</div>
 </div>
 
 <style>
+	.flash-content {
+		position: absolute;
+		padding: 8px;
+		z-index: 100;
+	}
+	.flash-img {
+		position: absolute;
+		animation: swing 5500ms ease-in-out infinite;
+	}
+
+	@keyframes swing {
+		0% {
+			transform: rotate(0);
+		}
+		50% {
+			transform: rotate(var(--finrot));
+		}
+		100% {
+			transform: rotate(0);
+		}
+	}
 </style>
