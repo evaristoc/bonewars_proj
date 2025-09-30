@@ -1,5 +1,6 @@
 <script>
 	import Flash from '$lib/components/Flash.svelte';
+	import pitVideo from '$lib/assets/videos/Recording 2025-05-23 230753.mp4';
 	import mapScreen from '$lib/assets/images/sections/section01.jpg';
 	import statsScreen from '$lib/assets/images/sections/section02.jpg';
 
@@ -24,12 +25,27 @@
 			imgrotation: -20,
 			contentbgcolor: 'white',
 			contenttop: 24,
-			contentleft: 16,
+			contentleft: 58,
 			imgtop: 0,
-			imgleft: 16
+			imgleft: 58
 		}
 	};
 </script>
 
-<Flash {...dataset.section01} />
-<Flash {...dataset.section02} />
+<video autoplay muted loop id="fossilpitvideo" aria-label="fossilpit">
+	<source src={pitVideo} type="video/mp4" />
+</video>
+<div class="content">
+	<Flash {...dataset.section01} />
+	<Flash {...dataset.section02} />
+</div>
+
+<style>
+	#fossilpitvideo {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		min-width: 100%;
+		min-height: 100%;
+	}
+</style>
