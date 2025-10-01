@@ -3,6 +3,8 @@
 	import pitVideo from '$lib/assets/videos/Recording 2025-05-23 230753.mp4';
 	import mapScreen from '$lib/assets/images/sections/section01.jpg';
 	import statsScreen from '$lib/assets/images/sections/section02.jpg';
+	import quizScreen from '$lib/assets/images/sections/section03.jpg';
+	import interactScreen from '$lib/assets/images/sections/section04.jpg';
 
 	const dataset = {
 		section01: {
@@ -14,7 +16,7 @@
 			contentbgcolor: 'rgba(0, 188, 212, 1)',
 			contenttop: 12,
 			contentleft: 12,
-			imgtop: 0,
+			imgtop: 6,
 			imgleft: 0
 		},
 		section02: {
@@ -25,25 +27,66 @@
 			imgrotation: -20,
 			contentbgcolor: 'white',
 			contenttop: 24,
-			contentleft: 58,
-			imgtop: 0,
-			imgleft: 58
+			contentleft: 64,
+			imgtop: 14,
+			imgleft: 66
+		},
+		section03: {
+			flashInnerText: 'this is the quiz section',
+			flashSrc: quizScreen,
+			flashAlt: 'quiz section',
+			innerTextrotation: 12,
+			imgrotation: -30,
+			contentbgcolor: 'green',
+			contenttop: 34,
+			contentleft: 32,
+			imgtop: 18,
+			imgleft: 24
+		},
+		section04: {
+			flashInnerText: 'this is the interactive section',
+			flashSrc: interactScreen,
+			flashAlt: 'interactive section',
+			innerTextrotation: -8,
+			imgrotation: 30,
+			contentbgcolor: 'red',
+			contenttop: 2,
+			contentleft: 44,
+			imgtop: 2,
+			imgleft: 44
 		}
 	};
+
+	let hide00 = false;
 </script>
 
 <video autoplay muted loop id="fossilpitvideo" aria-label="fossilpit">
 	<source src={pitVideo} type="video/mp4" />
 </video>
-<div class="title">
-	<h1>Race for Dinosaurs</h1>
-</div>
-<div class="content">
+<div class="content" class:hide00>
 	<Flash {...dataset.section01} />
 	<Flash {...dataset.section02} />
+	<Flash {...dataset.section03} />
+	<Flash {...dataset.section04} />
+</div>
+<div class="title">
+	<h1
+		on:mouseenter={() => {
+			hide00 = true;
+		}}
+		on:mouseleave={() => {
+			hide00 = false;
+		}}
+	>
+		Race for Dinosaurs
+	</h1>
+	<p>
+		A place to play and learn about one of the nastiest confrontations in the history of science
+	</p>
 </div>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Faculty+Glyphic&family=Rye&family=Xanh+Mono:ital@0;1&display=swap');
 	#fossilpitvideo {
 		position: fixed;
 		right: 0;
@@ -55,22 +98,49 @@
 	.title {
 		position: fixed;
 		bottom: 0;
-		background: rgba(0, 0, 0, 0.5);
-		color: #f1f1f1;
+		/*background: rgba(0, 0, 0, 0.5);*/
+		/*color: #f1f1f1; color: #efeae6;*/
+		color: rgba(150, 179, 75, 89%);
+		background-image: linear-gradient(rgba(157, 141, 107, 25%), #333);
+		height: 1vh;
+		min-width: 100%;
+		min-height: 100%;
+		padding: 15px;
+		font-size: 13rem;
+		letter-spacing: 1px;
+		width: auto;
+	}
+
+	.title h1 {
+		font-family: 'Bungee Inline', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		background-clip: text;
+		color: trasparent;
+		width: inherit;
+		height: inherit;
+	}
+
+	.title p {
+		display: none;
+		position: fixed;
+		font-size: 3rem;
+		left: 0;
+		bottom: 30px;
+		color: magenta;
 		width: 100%;
 		padding: 20px;
-		font-size: 5rem;
-		margin-bottom: 1rem;
-		color: #efeae6;
-		letter-spacing: 1px;
-		margin-bottom: 1rem;
-		width: auto;
-		box-shadow: 0px 10px 0px 5px rgb(51, 50, 50);
+	}
 
-		/*animation-name: titleFadeIn;*/
-		animation-duration: 0.09s; /*0.05 ---- 10 step*/
-		animation-timing-function: steps(10, jump-both);
-		animation-direction: alternate;
-		animation-iteration-count: infinite;
+	.title h1:hover {
+		color: magenta;
+	}
+
+	.title h1:hover ~ p {
+		display: block;
+	}
+
+	.content.hide00 {
+		display: none;
 	}
 </style>

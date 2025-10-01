@@ -54,10 +54,20 @@
 		position: absolute;
 		padding: 8px;
 		z-index: 100;
+		font-size: 1.7rem;
 	}
+
+	.flash-content:hover {
+		opacity: 100%;
+	}
+
 	.flash-img {
 		position: absolute;
 		animation: swing 5500ms ease-in-out infinite;
+		width: 22rem;
+		height: 20rem;
+		min-height: 300px;
+		min-width: 380px;
 	}
 
 	@keyframes swing {
