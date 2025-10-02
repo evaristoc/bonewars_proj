@@ -45,7 +45,7 @@
 		style:top="{contenttop}rem"
 		style:left="{contentleft}rem"
 	>
-		<p>{flashInnerText}</p>
+		<p><a href="/">{flashInnerText}</a></p>
 	</div>
 </div>
 

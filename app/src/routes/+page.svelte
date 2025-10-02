@@ -71,6 +71,7 @@
 </div>
 <div class="title">
 	<h1
+		class="hoverable"
 		on:mouseenter={() => {
 			hide00 = true;
 		}}
@@ -81,7 +82,11 @@
 		<a
 			href="/"
 			on:click={(e) => {
-				console.log(document.getElementsByClassName('title'));
+				console.log(document.getElementsByClassName('title')[0].children);
+				let hoverable = document.getElementsByClassName('title')[0].children[0];
+				hoverable.classList.remove('hoverable');
+				console.log(hoverable.parentElement);
+				hoverable.parentElement.style.color = 'magenta';
 			}}>Race for Dinosaurs</a
 		>
 	</h1>
@@ -140,11 +145,11 @@
 		padding: 20px;
 	}
 
-	.title h1:hover {
+	.title .hoverable:hover {
 		color: magenta;
 	}
 
-	.title h1:hover ~ p {
+	.title .hoverable:hover ~ p {
 		display: block;
 	}
 
