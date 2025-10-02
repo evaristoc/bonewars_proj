@@ -58,6 +58,7 @@
 	};
 
 	let hide00 = false;
+	let hidehide = true;
 </script>
 
 <video autoplay muted loop id="fossilpitvideo" aria-label="fossilpit">
@@ -73,7 +74,7 @@
 	<h1
 		class="hoverable"
 		on:mouseenter={() => {
-			hide00 = true;
+			if (hidehide) hide00 = true;
 		}}
 		on:mouseleave={() => {
 			hide00 = false;
@@ -87,6 +88,9 @@
 				hoverable.classList.remove('hoverable');
 				console.log(hoverable.parentElement);
 				hoverable.parentElement.style.color = 'magenta';
+				document.getElementsByClassName('content')[0].classList.remove('hidde00');
+				hidehide = false;
+				e.target.style.cursor = 'auto';
 			}}>Race for Dinosaurs</a
 		>
 	</h1>
