@@ -88,7 +88,6 @@
 				console.log(hoverable.parentElement);
 				hoverable.parentElement.style.color = 'magenta';
 				document.getElementsByClassName('content')[0].classList.remove('hide-content');
-				hidehide = false;
 				e.target.style.cursor = 'auto';
 			}}>Bones War Project</a
 		>
