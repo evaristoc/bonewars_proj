@@ -78,7 +78,12 @@
 			hide00 = false;
 		}}
 	>
-		Race for Dinosaurs
+		<a
+			href="/"
+			on:click={(e) => {
+				console.log(document.getElementsByClassName('title'));
+			}}>Race for Dinosaurs</a
+		>
 	</h1>
 	<p>
 		A place to play and learn about one of the nastiest confrontations in the history of science
@@ -93,8 +98,9 @@
 		bottom: 0;
 		min-width: 100%;
 		min-height: 100%;
-		filter: contrast(200%) sepia(10%) drop-shadow(-30px -30px red);
+		filter: contrast(200%) invert(85%) sepia(25%) drop-shadow(-30px -30px red);
 	}
+
 	.title {
 		position: fixed;
 		bottom: 0;
@@ -102,19 +108,21 @@
 		/*color: #f1f1f1; color: #efeae6;*/
 		color: rgba(150, 179, 75, 89%);
 		background-image: linear-gradient(rgba(157, 141, 107, 25%), #333);
-		height: 1vh;
+		height: auto;
 		min-width: 100%;
 		min-height: 100%;
 		padding: 15px;
-		font-size: 13rem;
-		letter-spacing: 1px;
 		width: auto;
 	}
 
 	.title h1 {
+		position: absolute;
+		top: 20px;
 		font-family: 'Bungee Inline', sans-serif;
 		font-weight: 400;
 		font-style: normal;
+		font-size: 10rem;
+		letter-spacing: 1px;
 		background-clip: text;
 		color: trasparent;
 		width: inherit;
@@ -123,7 +131,7 @@
 
 	.title p {
 		display: none;
-		position: fixed;
+		position: absolute;
 		font-size: 3rem;
 		left: 0;
 		bottom: 30px;
