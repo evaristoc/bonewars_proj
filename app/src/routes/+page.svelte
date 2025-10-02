@@ -58,13 +58,12 @@
 	};
 
 	let hide00 = false;
-	let hidehide = true;
 </script>
 
 <video autoplay muted loop id="fossilpitvideo" aria-label="fossilpit">
 	<source src={pitVideo} type="video/mp4" />
 </video>
-<div class="content" class:hide00>
+<div class="content hide-content">
 	<Flash {...dataset.section01} />
 	<Flash {...dataset.section02} />
 	<Flash {...dataset.section03} />
@@ -74,7 +73,7 @@
 	<h1
 		class="hoverable"
 		on:mouseenter={() => {
-			if (hidehide) hide00 = true;
+			hide00 = true;
 		}}
 		on:mouseleave={() => {
 			hide00 = false;
@@ -88,10 +87,10 @@
 				hoverable.classList.remove('hoverable');
 				console.log(hoverable.parentElement);
 				hoverable.parentElement.style.color = 'magenta';
-				document.getElementsByClassName('content')[0].classList.remove('hidde00');
+				document.getElementsByClassName('content')[0].classList.remove('hide-content');
 				hidehide = false;
 				e.target.style.cursor = 'auto';
-			}}>Race for Dinosaurs</a
+			}}>Bones War Project</a
 		>
 	</h1>
 	<p>
@@ -114,8 +113,8 @@
 		position: fixed;
 		bottom: 0;
 		/*background: rgba(0, 0, 0, 0.5);*/
-		/*color: #f1f1f1; color: #efeae6;*/
-		color: rgba(150, 179, 75, 89%);
+		/*color: #f1f1f1; color: #efeae6;
+		color: rgba(150, 179, 75, 89%);*/
 		background-image: linear-gradient(rgba(157, 141, 107, 25%), #333);
 		height: auto;
 		min-width: 100%;
@@ -153,11 +152,19 @@
 		color: magenta;
 	}
 
+	.title .hoverable a {
+		transition: all 200ms ease-in-out;
+	}
+
+	.title .hoverable a:hover {
+		font-size: 10.2rem;
+	}
+
 	.title .hoverable:hover ~ p {
 		display: block;
 	}
 
-	.content.hide00 {
+	.content.hide-content {
 		display: none;
 	}
 </style>

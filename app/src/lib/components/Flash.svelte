@@ -55,10 +55,19 @@
 		padding: 8px;
 		z-index: 100;
 		font-size: 1.7rem;
+		transition: all 200ms ease-in-out;
 	}
 
 	.flash-content:hover {
-		opacity: 100%;
+		font-size: 1.9rem;
+	}
+
+	a:link {
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 
 	.flash-img {
