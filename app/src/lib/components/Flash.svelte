@@ -2,6 +2,7 @@
 	interface CompProps {
 		flashInnerText: String;
 		flashSrc: string;
+		flashVid: string;
 		flashAlt: string;
 		innerTextrotation: number;
 		imgrotation: number;
@@ -15,6 +16,7 @@
 	let {
 		flashInnerText,
 		flashSrc,
+		flashVid,
 		flashAlt,
 		innerTextrotation,
 		imgrotation,
@@ -26,6 +28,7 @@
 	}: CompProps = $props();
 
 	let finrot = 25;
+	let hide_bg = $state(true);
 </script>
 
 <div class="flash">
@@ -38,18 +41,42 @@
 		style:top="{imgtop}rem"
 		style:left="{imgleft}rem"
 	/>
+	{#if !hide_bg}
+		<video autoplay muted loop id="flash-video" aria-label="fossilpit">
+			<source src={flashVid} type="video/mp4" />
+		</video>
+	{/if}
 	<div
 		class="flash-content"
 		style:rotate="{innerTextrotation}deg"
 		style:background={contentbgcolor}
 		style:top="{contenttop}rem"
 		style:left="{contentleft}rem"
+		on:mouseenter={() => {
+			hide_bg = false;
+			console.log(hide_bg);
+		}}
+		on:mouseleave={() => {
+			hide_bg = true;
+		}}
 	>
-		<p><a href="/">{flashInnerText}</a></p>
+		<p>
+			<a href="/">{flashInnerText}</a>
+		</p>
 	</div>
 </div>
 
 <style>
+	#flash-video {
+		position: fixed;
+		z-index: 50;
+		right: 0;
+		bottom: 0;
+		min-width: 100%;
+		min-height: 100%;
+		filter: contrast(200%) invert(85%) sepia(25%) drop-shadow(-30px -30px red);
+	}
+
 	.flash-content {
 		position: absolute;
 		padding: 8px;
