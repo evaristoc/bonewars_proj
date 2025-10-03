@@ -89,15 +89,41 @@
 		<a
 			href="/"
 			on:click={(e) => {
-				console.log(document.getElementsByClassName('title')[0].children);
+				/** this onclick does a lot of things at the moment
+				 * - it finds the title container and removes the hoverable class to get rid of the very first interaction (p doesn't display anymore)
+				 * - it fixes the styling of the title to the last one
+				 * - it modifies the cursor styling when on the title, which is still an anchor
+				 * --- the fact that it is still an anchor means that THIS onclick is still working; I could not find a way to remove this onclick in Svelte
+				 * - it reveals the content sub-section using a simple, handmade animation
+				 * --- I haven't found a way to make a CSS animation runs under this function
+				 *
+				 * TODOS:
+				 * - find a way to remove the onclick once used
+				 * --- OBS: in svelte, this way to add an onclick don't result in an inline attribute attached to the HTMLElement
+				 * - while no way is found to remove the onclick once used, or use it once, introduce a guard to prevent the logic to run more than once
+				 * - find a way to make the animation more CSS native instead of using an interval?
+				 * - find is there is a better, more 'svelte' way to achieve all those results?
+				 */
 				let hoverable = document.getElementsByClassName('title')[0].children[0];
 				hoverable.classList.remove('hoverable');
-				console.log(hoverable.parentElement);
 				hoverable.parentElement.style.color = 'magenta';
+				hoverable.style.fontSize = '10.2rem';
+				document.getElementsByClassName('content')[0].style.opacity = 0;
 				document.getElementsByClassName('content')[0].classList.remove('hide-content');
 				e.target.style.cursor = 'auto';
-			}}>Bones War Project</a
-		>
+				let timer = 0;
+				let intervalId = setInterval(() => {
+					timer += 1 / 12;
+					document.getElementsByClassName('content')[0].style.opacity = timer;
+					if (timer >= 1) {
+						clearInterval(intervalId);
+					}
+				}, 12);
+
+				//document.getElementsByClassName('content')[0].style.animation = 'customfadein 1s';
+			}}
+			>Bones War Project
+		</a>
 	</h1>
 	<p>
 		A place to play and learn about one of the nastiest confrontations in the history of science
