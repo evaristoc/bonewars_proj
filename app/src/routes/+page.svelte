@@ -5,11 +5,15 @@
 	import statsScreen from '$lib/assets/images/sections/section02.jpg';
 	import quizScreen from '$lib/assets/images/sections/section03.jpg';
 	import interactScreen from '$lib/assets/images/sections/section04.jpg';
+	import mapBG from '$lib/assets/videos/map_section_vid.mp4';
+	import interactBG from '$lib/assets/videos/interact_section_vid.mp4';
+	import quizBG from '$lib/assets/videos/quiz_section_vid.mp4';
 
 	const dataset = {
 		section01: {
 			flashInnerText: 'this is the map section',
 			flashSrc: mapScreen,
+			flashVid: mapBG,
 			flashAlt: 'interactive map section',
 			innerTextrotation: 20,
 			imgrotation: 10,
@@ -22,6 +26,7 @@
 		section02: {
 			flashInnerText: 'this is the stats section',
 			flashSrc: statsScreen,
+			flashVid: '',
 			flashAlt: 'stats section',
 			innerTextrotation: -20,
 			imgrotation: -20,
@@ -34,6 +39,7 @@
 		section03: {
 			flashInnerText: 'this is the quiz section',
 			flashSrc: quizScreen,
+			flashVid: quizBG,
 			flashAlt: 'quiz section',
 			innerTextrotation: 12,
 			imgrotation: -30,
@@ -46,6 +52,7 @@
 		section04: {
 			flashInnerText: 'this is the interactive section',
 			flashSrc: interactScreen,
+			flashVid: interactBG,
 			flashAlt: 'interactive section',
 			innerTextrotation: -8,
 			imgrotation: 30,
