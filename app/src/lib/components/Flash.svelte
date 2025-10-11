@@ -49,20 +49,19 @@
 	<div
 		class="flash-content"
 		style:rotate="{innerTextrotation}deg"
-		style:background={contentbgcolor}
 		style:top="{contenttop}rem"
 		style:left="{contentleft}rem"
-		on:mouseenter={() => {
+		onmouseenter={() => {
 			hide_bg = false;
 			console.log(hide_bg);
 		}}
-		on:mouseleave={() => {
+		onmouseleave={() => {
 			hide_bg = true;
 		}}
+		role="navigation"
+		aria-label={flashInnerText}
 	>
-		<p>
-			<a href="/">{flashInnerText}</a>
-		</p>
+		<a href="." target="_self" rel="opener" style:background={contentbgcolor}>{flashInnerText}</a>
 	</div>
 </div>
 
@@ -79,14 +78,25 @@
 
 	.flash-content {
 		position: absolute;
-		padding: 8px;
+		padding: 0px;
 		z-index: 100;
 		font-size: 1.7rem;
+		background-color: white;
+		border-radius: 12px;
+		outline-offset: 4px;
 		transition: all 200ms ease-in-out;
 	}
 
 	.flash-content:hover {
 		font-size: 1.9rem;
+	}
+
+	a {
+		display: block;
+		border-radius: 12px;
+		padding: 12px 42px;
+		background: hsl(345deg 100% 47%);
+		transform: translateY(-6px);
 	}
 
 	a:link {

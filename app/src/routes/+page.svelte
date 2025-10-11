@@ -30,7 +30,7 @@
 			flashAlt: 'stats section',
 			innerTextrotation: -20,
 			imgrotation: -20,
-			contentbgcolor: 'white',
+			contentbgcolor: 'yellow',
 			contenttop: 24,
 			contentleft: 64,
 			imgtop: 14,
@@ -107,7 +107,7 @@
 				let hoverable = document.getElementsByClassName('title')[0].children[0];
 				hoverable.classList.remove('hoverable');
 				hoverable.parentElement.style.color = 'magenta';
-				hoverable.style.fontSize = '10.2rem';
+				hoverable.style.fontSize = '8.2rem';
 				document.getElementsByClassName('content')[0].style.opacity = 0;
 				document.getElementsByClassName('content')[0].classList.remove('hide-content');
 				e.target.style.cursor = 'auto';
@@ -157,11 +157,11 @@
 
 	.title h1 {
 		position: absolute;
-		top: 20px;
+		top: 25%;
 		font-family: 'Bungee Inline', sans-serif;
 		font-weight: 400;
 		font-style: normal;
-		font-size: 10rem;
+		font-size: 8rem;
 		letter-spacing: 1px;
 		background-clip: text;
 		color: trasparent;
@@ -189,7 +189,7 @@
 	}
 
 	.title .hoverable a:hover {
-		font-size: 10.2rem;
+		font-size: 8.2rem;
 	}
 
 	.title .hoverable:hover ~ p {
